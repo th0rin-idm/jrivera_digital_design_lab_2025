@@ -3,14 +3,14 @@
 .text
 .global main
 main:
-	MOV R0, #0x1000 @Dirrecion de cual flecha se preciona
+	MOV R0, #0x1000 @Direccion de tecla presionada
 	MOV R1, #0x2000 @Contador
 	
 	LDR R2, =0xE048 @Tecla hacia arriba
 	LDR R3, =0xE050 @Tecla hacia abajo
 	
 bucleInfinito:
-	LDR R4, [R0] @Se carga el valor en la dirrecion 0x1000 que estaría siendo ejecutado por la tecla al presionarse
+	LDR R4, [R0] @Se carga el valor en la dirrecion R0 que estaría siendo ejecutado por la tecla al presionarse
 	CMP R4, R2 @Flecha arriba?
 	BEQ fArriba
 	
