@@ -1,17 +1,17 @@
 .data
-array:  
-	.word 7, 13, 17, 20, 34, 2, 5, 22, 30, 9
-const: 
+constante: 
 	.word 17
+arreglo:  
+	.word 7, 13, 17, 20, 34, 2, 5, 22, 30, 9
 
 .text
 .global main
 main:
 	
-	LDR R0, =const @Carga la direccion de la constante 
+	LDR R0, =constante @Carga la direccion de la constante 
 	LDR R0, [R0] @Carga el valor en el registro
 
-	LDR R1, =array @Carga la direccion del arreglo 
+	LDR R1, =arreglo @Carga la direccion del arreglo 
 
 	MOV R2, #0 @Bandera de iteraciones
 	MOV R4, #0 @"i" contador o variable para acceder a cada posicion de la iteracion
@@ -32,7 +32,7 @@ inicioCiclo:
 	
 mayorIgual:
 	MUL R5, R3, R0 @Producto en registro 5
-	STR R5, [R1, R4] @Almacenamos en registro 5
+	STR R5, [R1, R4] @almacena el nuevo valor en su posicion del arreglo
 
 repiteCiclo:
 	ADD R2, R2, #1 @R2+1 será el nuevo valor de R2
